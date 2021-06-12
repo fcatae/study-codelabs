@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Integration
+name: Workflow Manual
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -12,12 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download claat tool
-        run: wget https://github.com/googlecodelabs/tools/releases/download/v2.2.4/claat-linux-amd64
-      - run: chmod +x claat-linux-amd64
-      - run: ./claat-linux-amd64 -h
+        run: tools/claat-linux-amd64 -h
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
