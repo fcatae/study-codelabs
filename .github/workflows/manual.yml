@@ -16,7 +16,9 @@ jobs:
           CLIENT_ID: ${{ secrets.clientId }}
           CLIENT_SECRET: ${{ secrets.clientSecret }}
           REFRESH_TOKEN: ${{ secrets.refreshToken }}
-        run: tools/go-generate-token -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN
+        run: |
+          echo -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN
+          tools/go-generate-token -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN
       - name: Run claat
         run: tools/claat-linux-amd64 -h
 
