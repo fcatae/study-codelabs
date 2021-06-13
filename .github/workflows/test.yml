@@ -12,5 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/claat
         with:
-          access-token: 123
+          client-id: ${{ secrets.clientId }}
+          client-secret: ${{ secrets.clientSecret }}
+          refersh-token: ${{ secrets.refreshToken }}          
           doc-id: abc
