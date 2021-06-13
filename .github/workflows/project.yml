@@ -29,7 +29,7 @@ jobs:
           REFRESH_TOKEN: ${{ secrets.refreshToken }}
         run: |
           access_token=$(tools/go-generate-token -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN)
-          tools/claat-linux-amd64 export -auth $access_token 1siUvZ-ZuE5hS5EojiUuiVNJbQZ_R44Mf55SEEn13iDA
+          tools/claat-linux-amd64 export -auth $access_token -o codelabs 1siUvZ-ZuE5hS5EojiUuiVNJbQZ_R44Mf55SEEn13iDA
 
       - run: |
           date > generated.txt
