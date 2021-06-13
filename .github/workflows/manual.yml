@@ -17,9 +17,11 @@ jobs:
           CLIENT_SECRET: ${{ secrets.clientSecret }}
           REFRESH_TOKEN: ${{ secrets.refreshToken }}
         run: |
-          tools/go-generate-token -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN > /tmp/token
-          cat /tmp/token
+          access_token=$(tools/go-generate-token -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN)
+          echo $access_token
       - name: Run claat
-        run: tools/claat-linux-amd64 export -auth $(cat /tmp/token) 1siUvZ-ZuE5hS5EojiUuiVNJbQZ_R44Mf55SEEn13iDA
-        
+        run: |
+          echo $access_token
+          tools/claat-linux-amd64 export -auth $access_token 1siUvZ-ZuE5hS5EojiUuiVNJbQZ_R44Mf55SEEn13iDA
+
 
