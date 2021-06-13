@@ -13,3 +13,4 @@ runs:
   using: "composite"
   steps:
     - run: tools/claat-linux-amd64 export -auth ${{ inputs.access-token }} -o codelabs ${{ inputs.doc-id }}
+      shell: bash
