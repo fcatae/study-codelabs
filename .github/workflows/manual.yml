@@ -11,17 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Generate key
+      - name: Generate key and run claat
         env:
           CLIENT_ID: ${{ secrets.clientId }}
           CLIENT_SECRET: ${{ secrets.clientSecret }}
           REFRESH_TOKEN: ${{ secrets.refreshToken }}
         run: |
           access_token=$(tools/go-generate-token -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN)
-          echo $access_token
-      - name: Run claat
-        run: |
-          echo $access_token
           tools/claat-linux-amd64 export -auth $access_token 1siUvZ-ZuE5hS5EojiUuiVNJbQZ_R44Mf55SEEn13iDA
 
 
