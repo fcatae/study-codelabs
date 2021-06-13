@@ -5,7 +5,7 @@
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler
 
-name: Labeler
+name: Atualize Projeto
 on:
   project_card:
     types: [created]
@@ -19,4 +19,4 @@ jobs:
       pull-requests: write
 
     steps:
-    - run: echo ${{ toJSON(github.event) }}
+      - run: echo ${{ toJSON(github.event) }}
