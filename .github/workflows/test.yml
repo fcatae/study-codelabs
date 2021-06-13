@@ -11,3 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/claat
+        with:
+          access-token: 123
+          doc-id: abc

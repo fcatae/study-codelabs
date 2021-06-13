@@ -1,21 +1,15 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Run claat'
+description: 'Run claat tool to generate HTML files'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  access-token: 
+    description: 'Access Token'
     required: true
-    default: 'World'
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
+    default: '<EMPTY>'
+  docid:  
+    description: 'Google Document Id'
+    required: true
+    default: '<EMPTY>'    
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
-      shell: bash
-    - id: random-number-generator
-      run: echo "::set-output name=random-id::$(echo $RANDOM)"
-      shell: bash
-    - run: ${{ github.action_path }}/goodbye.sh
-      shell: bash
+    - run: tools/claat-linux-amd64 export -auth ${{ inputs.access-token }} -o codelabs ${{ inputs.doc-id }}
