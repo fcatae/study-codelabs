@@ -16,10 +16,21 @@ jobs:
     steps:
       - name: Intro
         run: echo 1
+        
       - name: Apresenta info
         run: |
           echo "${{ toJSON(github.event.project_card) }}"
-          echo "${{ github.event.project_card.note }}" | head -n 1
+          echo "${{ github.event.project_card.note }}" | head -n 1        
+
+      - name: Lista as linhas
+        env:
+          PROJECT_CARD_NOTE: ${{ github.event.project_card.note }}
+        run: |
+          for Line in $PROJECT_CARD_NOTE
+          do
+            echo Processando $Line
+          done
+
       - uses: actions/checkout@v2
 
       - name: Generate key and run claat
