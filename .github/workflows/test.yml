@@ -14,5 +14,5 @@ jobs:
         with:
           client-id: ${{ secrets.clientId }}
           client-secret: ${{ secrets.clientSecret }}
-          refersh-token: ${{ secrets.refreshToken }}          
+          refresh-token: ${{ secrets.refreshToken }}          
           doc-id: abc
