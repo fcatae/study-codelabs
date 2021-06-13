@@ -11,12 +11,10 @@ on:
     types: [created]
 
 jobs:
-  label:
-
+  atualize:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-
     steps:
-      - run: echo ${{ toJSON(github.event) }}
+      - name: Intro
+        run: echo 1
+      - name: Apresenta info
+        run: echo ${{ toJSON(github.event) }}
