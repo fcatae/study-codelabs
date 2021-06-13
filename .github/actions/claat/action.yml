@@ -4,11 +4,9 @@ inputs:
   access-token: 
     description: 'Access Token'
     required: true
-    default: '<EMPTY>'
-  docid:  
+  doc-id:  
     description: 'Google Document Id'
-    required: true
-    default: '<EMPTY>'    
+    required: true  
 runs:
   using: "composite"
   steps:
