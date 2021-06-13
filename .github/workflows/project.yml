@@ -17,4 +17,4 @@ jobs:
       - name: Intro
         run: echo 1
       - name: Apresenta info
-        run: echo ${{ toJSON(github.event) }}
+        run: echo `${{ toJSON(github.event) }}`
