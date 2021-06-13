@@ -18,10 +18,19 @@ jobs:
         run: echo 1
       - name: Apresenta info
         run: |
-          echo ${{ github.event }}
-          echo ${{ github.event.project_card }}
-          echo "${{ github.event.project_card.note }}"
-      - uses: actions/checkout@v2          
+          echo "${{ toJSON(github.event.project_card) }}"
+          echo "${{ github.event.project_card.note }}" | head -n 1
+      - uses: actions/checkout@v2
+
+      - name: Generate key and run claat
+        env:
+          CLIENT_ID: ${{ secrets.clientId }}
+          CLIENT_SECRET: ${{ secrets.clientSecret }}
+          REFRESH_TOKEN: ${{ secrets.refreshToken }}
+        run: |
+          access_token=$(tools/go-generate-token -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN)
+          tools/claat-linux-amd64 export -auth $access_token 1siUvZ-ZuE5hS5EojiUuiVNJbQZ_R44Mf55SEEn13iDA
+
       - run: |
           date > generated.txt
           git config user.name github-actions
