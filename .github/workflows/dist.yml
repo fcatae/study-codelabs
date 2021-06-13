@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 12
       - run: echo "${{ toJSON(github.event) }}"
-      - run: npm install gulp
+      - run: npm install -g gulp
       - run: gulp dist
 
 
