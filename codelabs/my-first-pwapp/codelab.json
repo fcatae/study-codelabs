@@ -1,0 +1,27 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-06-13T00:22:48Z",
+  "id": "my-first-pwapp",
+  "duration": 7,
+  "title": "My Third Progressive Web App",
+  "authors": "Fabricio",
+  "summary": "In this codelab, you'll build an installable, Progressive Web App, which loads quickly, even on flaky networks, and when launched looks like any other installed app.",
+  "source": "1siUvZ-ZuE5hS5EojiUuiVNJbQZ_R44Mf55SEEn13iDA",
+  "theme": "web",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "Web"
+  ],
+  "tags": [
+    "kiosk",
+    "web"
+  ],
+  "feedback": "https://github.com/fcatea/your-first-pwapp/issues",
+  "ga": "UA-52746336-1",
+  "url": "my-first-pwapp"
+}
