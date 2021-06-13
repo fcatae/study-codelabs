@@ -18,7 +18,5 @@ runs:
   steps:
     - run: |
         access_token=$(tools/go-generate-token -client=${{ inputs.client-id }} -secret=${{ inputs.client-secret }} -refresh=${{ inputs.refresh-token }})
-        echo access token
-        echo $access_token
         tools/claat-linux-amd64 export -auth $access_token -o codelabs ${{ inputs.doc-id }}
       shell: bash
