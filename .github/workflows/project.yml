@@ -17,18 +17,16 @@ jobs:
       - name: Intro
         run: echo 1
         
-      - name: Apresenta info
-        run: |
-          echo "${{ toJSON(github.event.project_card) }}"
-          echo "${{ github.event.project_card.note }}" | head -n 1        
+      - name: Event info
+        run: echo "${{ toJSON(github.event.project_card) }}"
 
-      - name: Lista as linhas
+      - name: Documentos
         env:
           PROJECT_CARD_NOTE: ${{ github.event.project_card.note }}
         run: |
           for Line in $PROJECT_CARD_NOTE
           do
-            echo Processando $Line
+            echo Google Doc: "$Line"
           done
 
       - uses: actions/checkout@v2
@@ -38,9 +36,14 @@ jobs:
           CLIENT_ID: ${{ secrets.clientId }}
           CLIENT_SECRET: ${{ secrets.clientSecret }}
           REFRESH_TOKEN: ${{ secrets.refreshToken }}
+          PROJECT_CARD_NOTE: ${{ github.event.project_card.note }}
         run: |
           access_token=$(tools/go-generate-token -client=$CLIENT_ID -secret=$CLIENT_SECRET -refresh=$REFRESH_TOKEN)
-          tools/claat-linux-amd64 export -auth $access_token -o codelabs 1siUvZ-ZuE5hS5EojiUuiVNJbQZ_R44Mf55SEEn13iDA
+          for Line in $PROJECT_CARD_NOTE
+          do
+            echo Processando "$Line"
+            tools/claat-linux-amd64 export -auth $access_token -o codelabs "$Line"
+          done
 
       - run: |
           date > generated.txt
