@@ -21,6 +21,7 @@ jobs:
           echo ${{ github.event }}
           echo ${{ github.event.project_card }}
           echo ${{ github.event.project_card.note }}
+      - uses: actions/checkout@v2          
       - run: |
           date > generated.txt
           git config user.name github-actions
