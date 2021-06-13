@@ -9,4 +9,4 @@ jobs:
   claat:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/claat
+      - uses: ./.github/actions/claat
