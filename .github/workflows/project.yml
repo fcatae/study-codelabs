@@ -5,7 +5,7 @@
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler
 
-name: Atualize Projeto
+name: Atualize Projeto 2
 on:
   project_card:
     types: [created]
